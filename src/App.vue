@@ -1,15 +1,16 @@
 <template>
-  <HomeView />
+  <TaskListView />
 </template>
 
 <script lang="ts" setup>
-import HomeView from '@/views/TaskListView.vue'
+import TaskListView from '@/views/TaskListView.vue'
 import { onBeforeMount } from 'vue'
 import { useStore } from 'vuex'
 
-const taskStore = useStore()
+const store = useStore()
 onBeforeMount(() => {
-  taskStore.commit('initialiseStore')
+  store.commit('initialiseStore')
+  store.commit('initDarkMode')
 })
 </script>
 
