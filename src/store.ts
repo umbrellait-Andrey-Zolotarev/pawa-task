@@ -42,7 +42,14 @@ export const store = createStore<State>({
     },
   },
   mutations: {
-    addTask: (state, task: Task) => {
+    initialiseStore(state) {
+      if (localStorage.getItem('tasks')) {
+        this.replaceState(
+          Object.assign(state, JSON.parse(localStorage.getItem('tasks') || '')),
+        )
+      }
+    },
+    addTask(state, task: Task) {
       state.tasks.push(task)
     },
   },
@@ -51,3 +58,7 @@ export const store = createStore<State>({
 export function useStore() {
   return baseUseStore(key)
 }
+
+store.subscribe((mutation, state) => {
+  localStorage.setItem('tasks', JSON.stringify(state))
+})

@@ -11,7 +11,7 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview --port 5050",
     "test": "vitest --environment jsdom",
-    "check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
+    "tscheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
