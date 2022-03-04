@@ -3,7 +3,7 @@
 This is test assignment for FE developer Please implement a simple todo list application called "pawaTask" that keeps
 track of your time.
 
-[View prototype](https://icvmmk.axshare.com/prototype.htm)
+[View prototype](https://icvmmk.axshare.com/prototype.html)
 
 ## Roadmap
 

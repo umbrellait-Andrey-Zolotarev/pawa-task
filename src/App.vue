@@ -33,8 +33,17 @@ onBeforeMount(() => {
 
   #app {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     padding: 0 2rem;
+  }
+  .frame {
+    width: 600px;
+  }
+}
+
+@media (max-width: 500px) {
+  #app {
+    padding: 0;
   }
 }
 </style>

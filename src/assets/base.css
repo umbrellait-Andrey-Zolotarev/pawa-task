@@ -73,6 +73,7 @@ body {
 
 button {
     width: fit-content;
+    height: 30px;
     background-color: rgba(237, 77, 36, 1);
     box-sizing: border-box;
     border-width: 0;
@@ -83,4 +84,9 @@ button {
     white-space: nowrap;
     text-align: center;
     cursor: pointer;
+}
+
+hr {
+    border-top: 1px solid var(--color-border);
+    margin: 10px 0 10px 0;
 }

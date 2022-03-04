@@ -1,10 +1,12 @@
 <template>
   <main class="frame">
     <DarkModeToggle />
+
     <div class="header">
-      <div class="title">TaskList</div>
-      <button @click="addTask">Add task</button>
+      <div class="title">PawaTask</div>
+      <button @click="addTask">Add a new task</button>
     </div>
+    <hr />
     <pre>{{ tasks }}</pre>
   </main>
 </template>
@@ -40,5 +42,9 @@ const addTask = () => {
 
 .title {
   width: 100%;
+  font-family: 'Proxima Nova', serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 24px;
 }
 </style>

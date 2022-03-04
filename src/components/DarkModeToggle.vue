@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <button class="button" @click="toggleDarkMode">
-      <span v-if="!darkMode">🌙</span>
-      <span v-else>☀️</span>
-    </button>
-  </div>
+  <button class="button dark-button" @click="toggleDarkMode">
+    <span v-if="!darkMode">🌙</span>
+    <span v-else>☀️</span>
+  </button>
 </template>
 
 <script setup lang="ts">
@@ -32,5 +30,14 @@ const toggleDarkMode = () => {
   position: fixed;
   top: 15px;
   right: 15px;
+  z-index: 1;
+  padding-right: 5px;
+}
+@media (max-width: 500px) {
+  .dark-button {
+    position: fixed;
+    left: calc(50% - 18px);
+    top: 15px;
+  }
 }
 </style>
