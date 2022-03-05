@@ -1,9 +1,10 @@
 # pawa-task
 
 This is test assignment for FE developer Please implement a simple todo list application called "pawaTask" that keeps
-track of your time.
+track of your time. Use this [prototype](https://icvmmk.axshare.com/prototype.html).
 
-[View prototype](https://icvmmk.axshare.com/prototype.html)
+[View crafted app DEMO at Vercel](https://pawa-task.vercel.app/)
+
 
 ## Roadmap
 
@@ -26,9 +27,8 @@ track of your time.
     - [x] Manual toggle allowed
     - [x] Save selected mode
 - [x] Unit testing and final refactoring|tuning
-    - [x] All views and components have basic unit tests
-    - [ ] GitHub actions perform unit tests before build stage
-    - [ ] GitHub actions perform build stage on tests successful
+    - [x] Some views and components have basic unit tests
+- [x] Auto deploy app onto Vercel
 
 ## Project Setup
 

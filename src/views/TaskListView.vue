@@ -4,6 +4,8 @@
 
 		<div class="header">
 			<div class="title">PawaTask</div>
+			<button @click="reset">RESET</button>
+			<div style="width: 10px"></div>
 			<button @click="addTask">Add a new task</button>
 		</div>
 		<hr />
@@ -29,6 +31,11 @@ import TaskEditView from "@/views/TaskEditView.vue"
 import TaskCommentView from "@/views/TaskCommentView.vue"
 
 const store = useStore()
+
+const reset = () => {
+	localStorage.clear()
+	window.location.reload()
+}
 
 const addTask = () => {
 	const date = new Date().toISOString().split("T")[0]
