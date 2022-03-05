@@ -86,6 +86,10 @@ button {
     cursor: pointer;
 }
 
+button:disabled {
+    background-color: var(--color-border-hover);
+}
+
 hr {
     border-top: 1px solid var(--color-border);
     margin: 10px 0 10px 0;
