@@ -30,6 +30,7 @@ export interface Task {
 
 export interface State {
   tasks: Task[]
+  taskEdit?: Task[]
   darkMode: boolean
 }
 
@@ -38,6 +39,7 @@ export const key: InjectionKey<Store<State>> = Symbol()
 export const store = createStore<State>({
   state: {
     tasks: [],
+    taskEdit: undefined,
     darkMode: false,
   },
   actions: {

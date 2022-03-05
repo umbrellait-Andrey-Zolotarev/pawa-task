@@ -1,8 +1,8 @@
 <template>
   <Transition name="modal">
-    <div v-if="show" class="modal-mask" @click="$emit('close')">
+    <div v-if="show" class="modal-mask" @mousedown="$emit('close')">
       <div class="modal-wrapper">
-        <div class="modal-container" @click.stop="">
+        <div class="modal-container" @mousedown.stop="">
           <div v-if="$slots.header" class="modal-header">
             <slot name="header">default header</slot>
           </div>
@@ -53,7 +53,7 @@ defineProps({
 }
 
 .modal-container {
-  width: 300px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 10px 20px;
   background-color: var(--color-background-mute);

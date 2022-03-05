@@ -14,6 +14,7 @@
       :show="addTaskDialog"
       @close="(input) => (addTaskDialog = input)"
     >
+      <template #header><h3>New task</h3></template>
       <TaskEditView />
     </ModalDialog>
   </main>
