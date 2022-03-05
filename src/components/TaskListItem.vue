@@ -13,7 +13,7 @@
         alt="comment"
       />
     </button>
-    <button style='margin-left: 10px'>
+    <button style="margin-left: 10px">
       <img
         style="height: 20px; margin-top: 5px"
         src="@/assets/edit.png"
@@ -29,8 +29,6 @@ import type { Task } from '@/store'
 defineProps<{
   task: Task
 }>()
-
-const add
 </script>
 
 <style scoped>

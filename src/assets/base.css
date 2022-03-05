@@ -90,3 +90,8 @@ hr {
     border-top: 1px solid var(--color-border);
     margin: 10px 0 10px 0;
 }
+
+input[type='checkbox'] {
+    width:30px;
+    height:30px;
+}

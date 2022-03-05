@@ -9,10 +9,11 @@
 import TaskListItem from '@/components/TaskListItem.vue'
 import { useStore } from 'vuex'
 
-const store = useStore()
 defineProps<{
   divider?: boolean
 }>()
+
+const store = useStore()
 </script>
 
 <style scoped></style>

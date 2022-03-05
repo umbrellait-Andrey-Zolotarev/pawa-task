@@ -7,24 +7,33 @@
       <button @click="addTask">Add a new task</button>
     </div>
     <hr />
+
     <TaskList divider />
-    <pre>{{ tasks }}</pre>
+
+    <ModalDialog
+      :show="addTaskDialog"
+      @close="(input) => (addTaskDialog = input)"
+    >
+      <TaskEditView />
+    </ModalDialog>
   </main>
 </template>
 
 <script setup lang="ts">
-import type { Task } from '@/store'
-import { computed } from 'vue'
+import ModalDialog from '@/components/ModalDialog.vue'
+import TaskEditView from '@/views/TaskEditView.vue'
+import { ref } from 'vue'
 import { useStore } from 'vuex'
 import DarkModeToggle from '@/components/DarkModeToggle.vue'
 import TaskList from '@/components/TaskList.vue'
 
 const store = useStore()
 
-const tasks = computed<Task[]>(() => store.state.tasks)
+const addTaskDialog = ref(false)
 
 const addTask = () => {
-  store.dispatch('addTask', { title: 'TEST', dueDate: new Date() } as Task)
+  addTaskDialog.value = true
+  //store.dispatch('addTask', { title: 'TEST', dueDate: new Date() } as Task)
 }
 </script>
 
