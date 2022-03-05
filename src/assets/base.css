@@ -9,6 +9,8 @@
     --vt-c-black-mute: #282828;
 
     --vt-c-indigo: #2c3e50;
+    --vt-c-primary-light: rgba(237, 77, 36, 1);
+    --vt-c-primary-dark: rgb(134, 46, 22);
 
     --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
     --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
@@ -23,6 +25,7 @@
 
 /* semantic color variables for this project */
 :root {
+    --color-primary: var(--vt-c-primary-light);
     --color-background: var(--vt-c-white);
     --color-background-soft: var(--vt-c-white-soft);
     --color-background-mute: var(--vt-c-white-mute);
@@ -37,6 +40,7 @@
 }
 
 :root.dark {
+    --color-primary: var(--vt-c-primary-dark);
     --color-background: var(--vt-c-black);
     --color-background-soft: var(--vt-c-black-soft);
     --color-background-mute: var(--vt-c-black-mute);
@@ -74,7 +78,7 @@ body {
 button {
     width: fit-content;
     height: 30px;
-    background-color: rgba(237, 77, 36, 1);
+    background-color: var(--color-primary);
     box-sizing: border-box;
     border-width: 0;
     font-family: 'Proxima Nova', serif;
@@ -111,4 +115,8 @@ textarea, input[type='text'], input[type='date'], select {
 textarea:focus, input[type='text']:focus, input[type='date']:focus {
     outline: none;
     border: 1px solid var(--color-border-hover);
+}
+
+a {
+    color: var(--color-primary);
 }

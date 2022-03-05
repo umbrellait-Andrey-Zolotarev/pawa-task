@@ -55,19 +55,17 @@
 </template>
 
 <script setup lang="ts">
+import { useStore } from "vuex"
 import type { Task } from "@/store"
 import { PRIORITY } from "@/store"
 import { computed, onBeforeUpdate, ref } from "vue"
-import { useStore } from "vuex"
 import ModalDialog from "@/components/ModalDialog.vue"
 
 const store = useStore()
-
 const isVisible = computed(() => {
 	return store.state.taskEdit !== undefined
 })
-
-const task = ref(store.state.taskEdit as Task)
+const task = ref({} as Task)
 
 const submitTask = () => {
 	if (task.value.title) store.dispatch("saveTask", task.value)
@@ -75,7 +73,7 @@ const submitTask = () => {
 }
 
 onBeforeUpdate(() => {
-	task.value = store.state.taskEdit
+	task.value = Object.assign({}, store.state.taskEdit)
 })
 </script>
 

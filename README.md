@@ -7,26 +7,26 @@ track of your time.
 
 ## Roadmap
 
-- [ ] Base project structure
+- [x] Base project structure
     - [x] Use one main layout
-    - [ ] Other views showing in modals
-- [ ] Create Views and Components
-    - [ ] Task list view
-    - [ ] Task Add|edit
-    - [ ] Task comments
-- [ ] VueX store modeling
+    - [x] Other views showing in modals
+- [x] Create Views and Components
+    - [x] Task list view
+    - [x] Task Add|edit
+    - [x] Task comments
+- [x] VueX store modeling
     - [x] Typings for all entities
     - [x] Save|restore from LocalStorage
     - [ ] Allow clear all data
-- [ ] App styling
+- [x] App styling
     - [x] Light and dark themes
     - [x] Use theme variables
 - [x] DarkMode feature
     - [x] Use device theme
     - [x] Manual toggle allowed
     - [x] Save selected mode
-- [ ] Unit testing and final refactoring|tuning
-    - [ ] All views and components have basic unit tests
+- [x] Unit testing and final refactoring|tuning
+    - [x] All views and components have basic unit tests
     - [ ] GitHub actions perform unit tests before build stage
     - [ ] GitHub actions perform build stage on tests successful
 

@@ -8,19 +8,25 @@
 		</div>
 		<hr />
 
-		<TaskList divider />
+		<div v-if="store.state.tasks.length === 0">
+			You do not have any tasks
+			<a href="" @click.prevent="addTask">add a new task</a>
+		</div>
+		<TaskList v-else divider />
 
 		<TaskEditView />
+		<TaskCommentView />
 	</main>
 </template>
 
 <script setup lang="ts">
 import { PRIORITY } from "@/store"
 import type { Task } from "@/store"
-import TaskEditView from "@/views/TaskEditView.vue"
 import { useStore } from "vuex"
 import DarkModeToggle from "@/components/DarkModeToggle.vue"
 import TaskList from "@/components/TaskList.vue"
+import TaskEditView from "@/views/TaskEditView.vue"
+import TaskCommentView from "@/views/TaskCommentView.vue"
 
 const store = useStore()
 

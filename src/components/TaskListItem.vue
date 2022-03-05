@@ -1,14 +1,18 @@
 <template>
-	<div class="task-row">
-		<input type="checkbox" />
-		<div class="task-title">{{ task.title }}</div>
+	<div class="comment-row">
+		<input :checked="task.isDone" type="checkbox" @input="toggleIsDone" />
+		<div
+			class="comment-info"
+			:style="task.isDone ? { 'text-decoration': 'line-through' } : {}">
+			{{ task.title }}
+		</div>
 		{{ task.priority.icon }}
 		📅
 		<span style="margin: 0 10px 0 10px">
 			{{ task.dueDate }}
 		</span>
-		<button @click="showComment()">💬</button>
-		<button style="margin-left: 10px" @click="editTask()">✏️</button>
+		<button @click="showComment">💬</button>
+		<button style="margin-left: 10px" @click="editTask">✏️</button>
 	</div>
 </template>
 
@@ -25,10 +29,21 @@ const store = useStore()
 const editTask = () => {
 	store.commit("editTask", props.task)
 }
+
+const toggleIsDone = () => {
+	const task = props.task
+	task.isDone = !task.isDone
+	store.commit("saveTask", task)
+	console.log(task.isDone)
+}
+
+const showComment = () => {
+	store.commit("editComment", props.task)
+}
 </script>
 
 <style scoped>
-.task-row {
+.comment-row {
 	background-color: var(--color-background-mute);
 	padding: 5px 0 5px 0;
 	display: flex;
@@ -41,7 +56,7 @@ const editTask = () => {
 	white-space: nowrap;
 }
 
-.task-title {
+.comment-info {
 	white-space: nowrap;
 	width: 100%;
 	margin-left: 10px;
