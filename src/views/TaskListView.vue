@@ -7,15 +7,17 @@
       <button @click="addTask">Add a new task</button>
     </div>
     <hr />
+    <TaskList divider />
     <pre>{{ tasks }}</pre>
   </main>
 </template>
 
 <script setup lang="ts">
-import DarkModeToggle from '@/components/DarkModeToggle.vue'
 import type { Task } from '@/store'
-import { useStore } from 'vuex'
 import { computed } from 'vue'
+import { useStore } from 'vuex'
+import DarkModeToggle from '@/components/DarkModeToggle.vue'
+import TaskList from '@/components/TaskList.vue'
 
 const store = useStore()
 
