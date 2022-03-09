@@ -1,11 +1,11 @@
 import { describe, it, expect } from "vitest"
 import { mount } from "@vue/test-utils"
 import { store } from "@/store"
-import HomeView from "@/views/TaskListView.vue"
+import TaskListView from "@/views/TaskListView.vue"
 
-describe("HomeView", () => {
+describe("TaskListView", () => {
 	it("renders properly", () => {
-		const wrapper = mount(HomeView, {
+		const wrapper = mount(TaskListView, {
 			global: {
 				plugins: [store],
 			},
