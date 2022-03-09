@@ -18,7 +18,7 @@ track of your time. Use this [prototype](https://icvmmk.axshare.com/prototype.ht
 - [x] VueX store modeling
     - [x] Typings for all entities
     - [x] Save|restore from LocalStorage
-    - [ ] Allow clear all data
+    - [x] Allow clear all data
 - [x] App styling
     - [x] Light and dark themes
     - [x] Use theme variables
