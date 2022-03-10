@@ -1,5 +1,5 @@
 <template>
-	<div class="comment-row">
+	<div class="task-row">
 		<div>
 			<span style="font-weight: bold">{{ comment.author }}</span>
 			@ {{ comment.createdAt }}
@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Comment } from '@/types'
+import type { Comment } from "@/types"
 
 defineProps<{
 	comment: Comment
@@ -17,7 +17,7 @@ defineProps<{
 </script>
 
 <style scoped>
-.comment-row {
+.task-row {
 	background-color: var(--color-background-mute);
 	padding: 0;
 	font-weight: 200;

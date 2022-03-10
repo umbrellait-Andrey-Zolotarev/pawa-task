@@ -22,13 +22,13 @@
 </template>
 
 <script setup lang="ts">
-import { useStore } from 'vuex'
-import { PRIORITY } from '@/constants'
-import type { Task } from '@/types'
-import DarkModeToggle from '@/components/DarkModeToggle.vue'
-import TaskList from '@/components/TaskList.vue'
-import TaskEditView from '@/views/TaskEditView.vue'
-import TaskCommentView from '@/views/TaskCommentView.vue'
+import { useStore } from "vuex"
+import { PRIORITY } from "@/constants"
+import type { Task } from "@/types"
+import DarkModeToggle from "@/components/DarkModeToggle.vue"
+import TaskList from "@/components/TaskList.vue"
+import TaskEditView from "@/views/TaskEditView.vue"
+import TaskCommentView from "@/views/TaskCommentView.vue"
 
 const store = useStore()
 
@@ -38,10 +38,10 @@ const reset = () => {
 }
 
 const addTask = () => {
-	const date = new Date().toISOString().split('T')[0]
-	store.commit('editTask', {
-		title: '',
-		description: '',
+	const date = new Date().toISOString().split("T")[0]
+	store.commit("editTask", {
+		title: "",
+		description: "",
 		priority: PRIORITY.LOW,
 		isDone: false,
 		dueDate: date

@@ -1,4 +1,4 @@
-import type { PRIORITY } from '@/constants'
+import type { PRIORITY } from "@/constants"
 
 export type Priority =
 	| typeof PRIORITY.LOW

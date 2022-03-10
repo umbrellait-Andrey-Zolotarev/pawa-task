@@ -6,8 +6,8 @@
 </template>
 
 <script setup lang="ts">
-import { useStore } from 'vuex'
-import CommentListItem from '@/components/CommentListItem.vue'
+import { useStore } from "vuex"
+import CommentListItem from "@/components/CommentListItem.vue"
 
 defineProps<{
 	divider?: boolean

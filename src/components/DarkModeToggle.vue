@@ -6,16 +6,16 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useStore } from 'vuex'
-import type { Task } from '@/types'
+import { computed } from "vue"
+import { useStore } from "vuex"
+import type { Task } from "@/types"
 
 const store = useStore()
 
 const darkMode = computed<Task[]>(() => store.state.darkMode)
 
 const toggleDarkMode = () => {
-	store.commit('toggleDarkMode')
+	store.commit("toggleDarkMode")
 }
 </script>
 

@@ -1,9 +1,7 @@
 <template>
-	<div class="comment-row">
+	<div class="task-row" :class="{ 'task-is-done': task.isDone }">
 		<input :checked="task.isDone" type="checkbox" @input="toggleIsDone" />
-		<div
-			class="comment-info"
-			:style="task.isDone ? { 'text-decoration': 'line-through' } : {}">
+		<div class="task-info">
 			{{ task.title }}
 		</div>
 		{{ task.priority.icon }}
@@ -17,8 +15,8 @@
 </template>
 
 <script setup lang="ts">
-import { useStore } from 'vuex'
-import type { Task } from '@/types'
+import { useStore } from "vuex"
+import type { Task } from "@/types"
 
 const props = defineProps<{
 	task: Task
@@ -27,22 +25,22 @@ const props = defineProps<{
 const store = useStore()
 
 const editTask = () => {
-	store.commit('editTask', props.task)
+	store.commit("editTask", props.task)
 }
 
 const toggleIsDone = () => {
 	const { task } = props
 	task.isDone = !task.isDone
-	store.commit('saveTask', task)
+	store.commit("saveTask", task)
 }
 
 const showComment = () => {
-	store.commit('editComment', props.task)
+	store.commit("editComment", props.task)
 }
 </script>
 
 <style scoped>
-.comment-row {
+.task-row {
 	background-color: var(--color-background-mute);
 	padding: 5px 0 5px 0;
 	display: flex;
@@ -54,7 +52,7 @@ const showComment = () => {
 	white-space: nowrap;
 }
 
-.comment-info {
+.task-info {
 	white-space: nowrap;
 	width: 100%;
 	margin-left: 10px;
@@ -64,5 +62,10 @@ const showComment = () => {
 button {
 	height: 32px;
 	width: 40px;
+}
+
+.task-is-done {
+	text-decoration: line-through;
+	background: repeating-linear-gradient(45deg, #eee 5px, #aaa 10px, #eee 15px);
 }
 </style>

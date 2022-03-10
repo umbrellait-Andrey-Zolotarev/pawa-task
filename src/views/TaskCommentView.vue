@@ -44,11 +44,11 @@
 </template>
 
 <script setup lang="ts">
-import { useStore } from 'vuex'
-import { computed, onBeforeUpdate, ref } from 'vue'
-import type { Task, Comment } from '@/types'
-import ModalDialog from '@/components/ModalDialog.vue'
-import CommentList from '@/components/CommentList.vue'
+import { useStore } from "vuex"
+import { computed, onBeforeUpdate, ref } from "vue"
+import type { Task, Comment } from "@/types"
+import ModalDialog from "@/components/ModalDialog.vue"
+import CommentList from "@/components/CommentList.vue"
 
 const store = useStore()
 
@@ -59,14 +59,14 @@ const comment = ref<Comment>({} as Comment)
 
 const submitComment = async () => {
 	if (!comment.value.text) return
-	store.dispatch('addComment', comment.value).then(() => {
-		comment.value.text = ''
+	store.dispatch("addComment", comment.value).then(() => {
+		comment.value.text = ""
 	})
 }
 
 onBeforeUpdate(() => {
 	task.value = store.state.taskComment
-	comment.value.text = ''
+	comment.value.text = ""
 })
 </script>
 
@@ -76,7 +76,7 @@ onBeforeUpdate(() => {
 }
 
 textarea,
-input[type='text'] {
+input[type="text"] {
 	width: 100%;
 }
 

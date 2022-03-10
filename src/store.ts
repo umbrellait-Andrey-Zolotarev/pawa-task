@@ -1,9 +1,9 @@
-import type { InjectionKey } from 'vue'
-import { createStore, Store, useStore as baseUseStore } from 'vuex'
-import { STORE_KEY } from '@/constants'
-import type { State, Task, Comment } from '@/types'
+import type { InjectionKey } from "vue"
+import { createStore, Store, useStore as baseUseStore } from "vuex"
+import { STORE_KEY } from "@/constants"
+import type { State, Task, Comment } from "@/types"
 
-export const key: InjectionKey<Store<State>> = Symbol('store')
+export const key: InjectionKey<Store<State>> = Symbol("store")
 
 export const store = createStore<State>({
 	state: {
@@ -14,36 +14,36 @@ export const store = createStore<State>({
 	},
 	actions: {
 		saveTask({ commit }, task: Task) {
-			commit('saveTask', task)
+			commit("saveTask", task)
 		},
 		async addComment({ state, commit }, comment: Comment) {
 			if (!state.taskComment) return
-			const user = (await (await fetch('https://randomuser.me/api/')).json())
+			const user = (await (await fetch("https://randomuser.me/api/")).json())
 				.results[0]
 			comment = {
 				...comment,
 				id: new Date().getTime(),
-				createdAt: new Date().toISOString().replace('T', ' ').split('.')[0],
+				createdAt: new Date().toISOString().replace("T", " ").split(".")[0],
 				author: `${user.name.first} ${user.name.last}`
 			}
-			commit('addComment', comment)
+			commit("addComment", comment)
 		}
 	},
 	mutations: {
 		initializeStore(state) {
 			const loadedStore = JSON.parse(
-				localStorage.getItem(STORE_KEY) || '{}'
+				localStorage.getItem(STORE_KEY) || "{}"
 			) as State
 
 			if (loadedStore.darkMode === undefined) {
 				loadedStore.darkMode = window.matchMedia(
-					'(prefers-color-scheme: dark)'
+					"(prefers-color-scheme: dark)"
 				).matches
 			}
 			this.replaceState(Object.assign(state, loadedStore))
 		},
 		initDarkMode(state) {
-			document.documentElement.className = state.darkMode ? 'dark' : ''
+			document.documentElement.className = state.darkMode ? "dark" : ""
 		},
 
 		saveTask(state, task: Task) {
@@ -71,7 +71,7 @@ export const store = createStore<State>({
 
 		toggleDarkMode(state) {
 			state.darkMode = !state.darkMode
-			document.documentElement.className = state.darkMode ? 'dark' : ''
+			document.documentElement.className = state.darkMode ? "dark" : ""
 		}
 	}
 })
