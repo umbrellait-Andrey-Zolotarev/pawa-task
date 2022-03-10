@@ -17,8 +17,8 @@
 </template>
 
 <script setup lang="ts">
-import type { Task } from "@/types"
-import { useStore } from "vuex"
+import { useStore } from 'vuex'
+import type { Task } from '@/types'
 
 const props = defineProps<{
 	task: Task
@@ -27,18 +27,17 @@ const props = defineProps<{
 const store = useStore()
 
 const editTask = () => {
-	store.commit("editTask", props.task)
+	store.commit('editTask', props.task)
 }
 
 const toggleIsDone = () => {
-	const task = props.task
+	const { task } = props
 	task.isDone = !task.isDone
-	store.commit("saveTask", task)
-	console.log(task.isDone)
+	store.commit('saveTask', task)
 }
 
 const showComment = () => {
-	store.commit("editComment", props.task)
+	store.commit('editComment', props.task)
 }
 </script>
 
@@ -49,7 +48,6 @@ const showComment = () => {
 	display: flex;
 	justify-items: center;
 	align-items: center;
-	font-family: "Proxima Nova", serif;
 	font-weight: 200;
 	font-style: normal;
 	font-size: 15px;

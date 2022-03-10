@@ -48,32 +48,30 @@
 		</form>
 		<template #footer>
 			<button :disabled="!task.title" @click="submitTask">
-				{{ task.id ? "Save changes" : "Add a new task" }}
+				{{ task.id ? 'Save changes' : 'Add a new task' }}
 			</button>
 		</template>
 	</ModalDialog>
 </template>
 
 <script setup lang="ts">
-import { useStore } from "vuex"
-import type { Task } from "@/types"
-import { PRIORITY } from "@/constants"
-import { computed, onBeforeUpdate, ref } from "vue"
-import ModalDialog from "@/components/ModalDialog.vue"
+import { useStore } from 'vuex'
+import { computed, onBeforeUpdate, ref } from 'vue'
+import type { Task } from '@/types'
+import { PRIORITY } from '@/constants'
+import ModalDialog from '@/components/ModalDialog.vue'
 
 const store = useStore()
-const isVisible = computed(() => {
-	return store.state.taskEdit !== undefined
-})
+const isVisible = computed(() => store.state.taskEdit !== undefined)
 const task = ref({} as Task)
 
 const submitTask = () => {
-	if (task.value.title) store.dispatch("saveTask", task.value)
-	store.commit("editTask", undefined)
+	if (task.value.title) store.dispatch('saveTask', task.value)
+	store.commit('editTask', undefined)
 }
 
 onBeforeUpdate(() => {
-	task.value = Object.assign({}, store.state.taskEdit)
+	task.value = { ...store.state.taskEdit }
 })
 </script>
 
@@ -83,7 +81,7 @@ onBeforeUpdate(() => {
 }
 
 textarea,
-input[type="text"] {
+input[type='text'] {
 	width: 100%;
 }
 

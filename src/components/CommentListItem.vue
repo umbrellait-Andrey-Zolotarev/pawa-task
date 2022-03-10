@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Comment } from "@/types"
+import type { Comment } from '@/types'
 
 defineProps<{
 	comment: Comment
@@ -19,8 +19,7 @@ defineProps<{
 <style scoped>
 .comment-row {
 	background-color: var(--color-background-mute);
-	padding: 0px 0 0px 0;
-	font-family: "Proxima Nova", serif;
+	padding: 0;
 	font-weight: 200;
 	font-style: normal;
 	font-size: 15px;

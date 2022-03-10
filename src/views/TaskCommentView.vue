@@ -21,7 +21,9 @@
 			<hr />
 			<div v-if="!task.comments || task.comments.length === 0">
 				You do not have any comments on this task
-				<a href="" @click="$refs.newComment.focus()">add a new comment</a>
+				<a href="" @click.prevent="$refs.newComment.focus()"
+					>add a new comment</a
+				>
 			</div>
 			<CommentList />
 		</div>
@@ -42,31 +44,29 @@
 </template>
 
 <script setup lang="ts">
-import type { Task, Comment } from "@/types"
-import { computed, onBeforeUpdate, ref } from "vue"
-import { useStore } from "vuex"
-import ModalDialog from "@/components/ModalDialog.vue"
-import CommentList from "@/components/CommentList.vue"
+import { useStore } from 'vuex'
+import { computed, onBeforeUpdate, ref } from 'vue'
+import type { Task, Comment } from '@/types'
+import ModalDialog from '@/components/ModalDialog.vue'
+import CommentList from '@/components/CommentList.vue'
 
 const store = useStore()
 
-const isVisible = computed(() => {
-	return store.state.taskComment !== undefined
-})
+const isVisible = computed(() => store.state.taskComment !== undefined)
 
 const task = ref<Task>(store.state.taskComment as Task)
 const comment = ref<Comment>({} as Comment)
 
 const submitComment = async () => {
 	if (!comment.value.text) return
-	store.dispatch("addComment", comment.value).then(() => {
-		comment.value.text = ""
+	store.dispatch('addComment', comment.value).then(() => {
+		comment.value.text = ''
 	})
 }
 
 onBeforeUpdate(() => {
 	task.value = store.state.taskComment
-	comment.value.text = ""
+	comment.value.text = ''
 })
 </script>
 
@@ -76,7 +76,7 @@ onBeforeUpdate(() => {
 }
 
 textarea,
-input[type="text"] {
+input[type='text'] {
 	width: 100%;
 }
 

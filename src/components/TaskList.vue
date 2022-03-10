@@ -6,8 +6,8 @@
 </template>
 
 <script setup lang="ts">
-import TaskListItem from "@/components/TaskListItem.vue"
-import { useStore } from "vuex"
+import { useStore } from 'vuex'
+import TaskListItem from '@/components/TaskListItem.vue'
 
 defineProps<{
 	divider?: boolean
