@@ -66,6 +66,12 @@ button {
 
 .task-is-done {
 	text-decoration: line-through;
-	background: repeating-linear-gradient(45deg, #eee 5px, #aaa 10px, #eee 15px);
+	background: repeating-linear-gradient(
+		45deg,
+		var(--color-border),
+		var(--color-border) 10px,
+		var(--color-border-hover) 10px,
+		var(--color-border-hover) 20px
+	);
 }
 </style>
