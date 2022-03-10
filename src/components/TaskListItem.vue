@@ -64,6 +64,16 @@ button {
 	width: 40px;
 }
 
+@keyframes width {
+	0% {
+		background-position: 0 0;
+	}
+
+	100% {
+		background-position: -28px 0;
+	}
+}
+
 .task-is-done {
 	text-decoration: line-through;
 	background: repeating-linear-gradient(
@@ -73,5 +83,7 @@ button {
 		var(--color-border-hover) 10px,
 		var(--color-border-hover) 20px
 	);
+	background-size: 28px;
+	animation: width 3s infinite linear;
 }
 </style>
