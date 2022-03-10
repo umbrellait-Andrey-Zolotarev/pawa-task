@@ -56,8 +56,8 @@
 
 <script setup lang="ts">
 import { useStore } from "vuex"
-import type { Task } from "@/store"
-import { PRIORITY } from "@/store"
+import type { Task } from "@/types"
+import { PRIORITY } from "@/constants"
 import { computed, onBeforeUpdate, ref } from "vue"
 import ModalDialog from "@/components/ModalDialog.vue"
 

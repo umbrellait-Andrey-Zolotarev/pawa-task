@@ -22,8 +22,8 @@
 </template>
 
 <script setup lang="ts">
-import { PRIORITY } from "@/store"
-import type { Task } from "@/store"
+import { PRIORITY } from "@/constants"
+import type { Task } from "@/types"
 import { useStore } from "vuex"
 import DarkModeToggle from "@/components/DarkModeToggle.vue"
 import TaskList from "@/components/TaskList.vue"

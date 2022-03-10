@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Task, Comment } from "@/store"
+import type { Task, Comment } from "@/types"
 import { computed, onBeforeUpdate, ref } from "vue"
 import { useStore } from "vuex"
 import ModalDialog from "@/components/ModalDialog.vue"

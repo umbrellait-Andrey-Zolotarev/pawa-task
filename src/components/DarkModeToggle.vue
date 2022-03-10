@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Task } from "@/store"
+import type { Task } from "@/types"
 import { computed } from "vue"
 import { useStore } from "vuex"
 

@@ -2,14 +2,14 @@
 	<TaskListView />
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import TaskListView from "@/views/TaskListView.vue"
 import { onBeforeMount } from "vue"
 import { useStore } from "vuex"
 
 const store = useStore()
 onBeforeMount(() => {
-	store.commit("initialiseStore")
+	store.commit("initializeStore")
 	store.commit("initDarkMode")
 })
 </script>

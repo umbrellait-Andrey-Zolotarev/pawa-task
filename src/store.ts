@@ -1,41 +1,7 @@
 import type { InjectionKey } from "vue"
-import { createStore, useStore as baseUseStore, Store } from "vuex"
-const STORE_kEY = "store"
-
-export const PRIORITY = {
-	LOW: { key: "Low", icon: "💙" },
-	MEDIUM: { key: "Medium", icon: "💚" },
-	HIGH: { key: "High", icon: "💗" },
-}
-
-export type Priority =
-	| typeof PRIORITY.LOW
-	| typeof PRIORITY.MEDIUM
-	| typeof PRIORITY.HIGH
-
-export interface Comment {
-	id?: number
-	author: string
-	createdAt: string
-	text: string
-}
-
-export interface Task {
-	id?: number
-	title: string
-	description: string
-	dueDate: string
-	priority: Priority
-	isDone: boolean
-	comments: Comment[]
-}
-
-export interface State {
-	tasks: Task[]
-	taskEdit?: Task
-	taskComment?: Task
-	darkMode: boolean
-}
+import { createStore, Store, useStore as baseUseStore } from "vuex"
+import { STORE_KEY } from "@/constants"
+import type { State, Task, Comment } from "@/types"
 
 export const key: InjectionKey<Store<State>> = Symbol()
 
@@ -64,9 +30,9 @@ export const store = createStore<State>({
 		},
 	},
 	mutations: {
-		initialiseStore(state) {
+		initializeStore(state) {
 			const loadedStore = JSON.parse(
-				localStorage.getItem(STORE_kEY) || "{}",
+				localStorage.getItem(STORE_KEY) || "{}",
 			) as State
 
 			if (loadedStore.darkMode === undefined)
@@ -114,5 +80,5 @@ export function useStore() {
 }
 
 store.subscribe((mutation, state) => {
-	localStorage.setItem(STORE_kEY, JSON.stringify(state))
+	localStorage.setItem(STORE_KEY, JSON.stringify(state))
 })

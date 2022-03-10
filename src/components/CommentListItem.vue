@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Comment } from "@/store"
+import type { Comment } from "@/types"
 
 defineProps<{
 	comment: Comment

@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Task } from "@/store"
+import type { Task } from "@/types"
 import { useStore } from "vuex"
 
 const props = defineProps<{
